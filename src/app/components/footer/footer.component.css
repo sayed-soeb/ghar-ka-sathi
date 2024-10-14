@@ -1,0 +1,111 @@
+.footer-container {
+    background-color: #333;
+    color: white;
+    padding: 2rem 1rem; /* Adjust padding for mobile */
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically on mobile */
+    align-items: center; /* Center-align items */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.footer-links,
+.footer-services,
+.footer-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Reset margin for mobile */
+}
+
+.footer-links h3,
+.footer-services h3,
+.footer-contact h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-links ul,
+.footer-services ul {
+    padding: 0;
+}
+
+.footer-links li,
+.footer-services li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a,
+.footer-services a,
+.footer-contact a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-links a:hover,
+.footer-services a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+.footer-socials {
+    margin-top: 1rem;
+}
+
+.footer-socials a {
+    color: white;
+    margin: 0 10px;
+    font-size: 1.5rem;
+}
+
+.footer-socials a:hover {
+    color: #ff6f61; /* Change color on hover */
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .footer-content {
+        flex-direction: row; /* Switch to row layout on larger screens */
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-links,
+    .footer-services,
+    .footer-contact {
+        text-align: center; /* Center text on mobile */
+    }
+
+    .footer-logo h2 {
+        font-size: 1.5rem; /* Smaller logo text on mobile */
+    }
+
+    .footer-links h3,
+    .footer-services h3,
+    .footer-contact h3 {
+        font-size: 1.25rem; /* Smaller heading text on mobile */
+    }
+
+    .footer-links li,
+    .footer-services li {
+        margin: 0.5rem 0; /* Adjust margin for mobile */
+    }
+}

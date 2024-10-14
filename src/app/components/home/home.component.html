@@ -1,0 +1,35 @@
+<section class="home-container">
+    <!-- Slider Section -->
+    <div class="slider">
+        <div class="slides" [ngStyle]="{'transform': 'translateX(-' + (currentSlide * 100) + '%)'}">
+            <div class="slide" *ngFor="let slide of slides; let i = index" [class.active]="i === currentSlide">
+                <img [src]="slide.image" alt="Slide Image" />
+                <div class="slide-text">
+                    <h2 class="typing-animation">{{ slide.title }}</h2>
+                    <p class="typing-animation">{{ slide.description }}</p>
+                    <button (mouseenter)="pauseSlider()" (mouseleave)="resumeSlider()">Book Now</button>
+                </div>
+            </div>
+            
+        </div>
+        <div class="slider-controls">
+            <span *ngFor="let slide of slides; let i = index" 
+                  [class.active]="i === currentSlide" 
+                  (click)="goToSlide(i)"></span>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <h2 class="services-title">Our Services</h2>
+    <div class="services-grid">
+        <div class="service-card" *ngFor="let service of services">
+            <div class="service-image" [ngStyle]="{'background-image': 'url(' + service.image + ')'}">
+                <div class="service-content">
+                    <h3>{{ service.title }}</h3>
+                    <p>{{ service.description }}</p>
+                    <button [routerLink]="getServiceRoute(service.title)">Get Service</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

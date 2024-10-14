@@ -1,0 +1,65 @@
+<div class="buy-sell-rent-section">
+    <!-- Buttons to switch sections -->
+    <div class="section-buttons">
+      <button class="btn" (click)="selectSection('buy')">Buy</button>
+      <button class="btn" (click)="selectSection('rent')">Rent</button>
+      <button class="btn" (click)="selectSection('sell')">Sell</button>
+    </div>
+  
+    <!-- Search and Filter Section -->
+    <div *ngIf="selectedSection !== 'sell'" class="search-section" style="background-image: url('assets/search-bg.jpg');">
+      <h2>Search Properties</h2>
+      <input type="text" [(ngModel)]="searchText" (input)="filterProperties()" placeholder="Search by name, location, price..." />
+      <div class="filters">
+        <select [(ngModel)]="selectedType" (change)="filterProperties()">
+          <option value="">All Types</option>
+          <option value="Apartment">Apartment</option>
+          <option value="House">House</option>
+          <option value="Commercial">Commercial</option>
+        </select>
+        <select [(ngModel)]="selectedPriceRange" (change)="filterProperties()">
+          <option value="">All Prices</option>
+          <option value="0-50000">0-50,000</option>
+          <option value="50000-100000">50,000-100,000</option>
+          <option value="100000+">100,000+</option>
+        </select>
+        <select [(ngModel)]="selectedLocation" (change)="filterProperties()">
+          <option value="">All Locations</option>
+          <option value="New York">New York</option>
+          <option value="Los Angeles">Los Angeles</option>
+          <option value="Chicago">Chicago</option>
+          <option value="Houston">Houston</option>
+        </select>
+      </div>
+    </div>
+  
+    <!-- Property Listings -->
+    <div *ngIf="selectedSection !== 'sell'" class="properties-grid">
+      <div *ngFor="let property of filteredProperties" class="property-card">
+        <img [src]="property.image" alt="{{ property.name }}" />
+        <h3>{{ property.name }}</h3>
+        <p>{{ property.details }}</p>
+        <p><strong>Price:</strong> {{ property.price }}</p>
+        <p><strong>Location:</strong> {{ property.location }}</p>
+      </div>
+    </div>
+  
+    <!-- Sell Form -->
+    <div *ngIf="selectedSection === 'sell'" class="sell-form">
+      <h2>Sell Your Property</h2>
+      <form (ngSubmit)="onSubmit()">
+        <input type="text" [(ngModel)]="propertyData.name" placeholder="Property Name" name="name" required />
+        <input type="text" [(ngModel)]="propertyData.location" placeholder="Location" name="location" required />
+        <input type="text" [(ngModel)]="propertyData.price" placeholder="Price" name="price" required />
+        <select [(ngModel)]="propertyData.type" name="type" required>
+          <option value="Apartment">Apartment</option>
+          <option value="House">House</option>
+          <option value="Commercial">Commercial</option>
+        </select>
+        <textarea [(ngModel)]="propertyData.details" placeholder="Details" name="details" required></textarea>
+        <input type="file" (change)="onFileSelected($event)" name="image" required />
+        <button type="submit" class="submit-btn">Submit Property</button>
+      </form>
+    </div>
+  </div>
+  

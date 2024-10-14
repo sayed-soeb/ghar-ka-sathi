@@ -1,0 +1,133 @@
+/* General Styling */
+.home-container {
+    padding: 2rem;
+    position: relative;
+}
+
+/* Slider Styles */
+.slider {
+    position: relative;
+    overflow: hidden;
+    height: 400px; /* Adjust height as needed */
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    position: relative;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+}
+
+.slide-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.slider-controls {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.slider-controls span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background: gray;
+    cursor: pointer;
+}
+
+.slider-controls span.active {
+    background: white;
+}
+
+/* Services Section */
+.services-title {
+    text-align: center;
+    margin: 3rem 0;
+    font-size: 2rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.service-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.service-image {
+    background-size: cover;
+    background-position: center;
+    height: 200px; /* Adjust height as needed */
+    position: relative;
+    transition: filter 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-content {
+    position: absolute;
+    text-align: center;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.service-card:hover .service-content {
+    opacity: 1;
+}
+
+.service-content button {
+    padding: 0.5rem 1rem;
+    background-color: white;
+    color: #ff6f61;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.service-content button:hover {
+    background-color: #ff7e5f;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr; /* Stack services on mobile */
+    }
+
+    .slider {
+        height: 250px; /* Adjust for mobile */
+    }
+}

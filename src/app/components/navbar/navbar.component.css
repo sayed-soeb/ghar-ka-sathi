@@ -1,0 +1,145 @@
+/* General Styling */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif; /* Latest and trendy font */
+  }
+  
+  .navbar {
+    background: linear-gradient(to right, #f41919, #e00404); /* Gradient background */
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .logo a {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .logo img {
+    height: 60px;
+    margin-left: 5rem;
+    scale: 4;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links li a:hover {
+    color: #ffcb8e;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .search-bar input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .search-bar button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #fff;
+    color: #ff7e5f;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-bar button:hover {
+    background-color: #ffcb8e;
+  }
+  
+  /* Hamburger Menu for Mobile */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 0.3rem;
+    cursor: pointer;
+  }
+  
+  .hamburger span {
+    width: 25px;
+    height: 2px;
+    background: #fff;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background-color: #ff7e5f;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .mobile-menu ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .mobile-menu ul li {
+    padding: 1rem 0;
+  }
+  
+  .mobile-menu ul li a {
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .mobile-menu.active {
+    display: block;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+  
+    .hamburger {
+      display: flex;
+    }
+  
+    .search-bar {
+      display: none;
+    }
+  
+    .logo a {
+      font-size: 1.5rem;
+    }
+  }
+  
