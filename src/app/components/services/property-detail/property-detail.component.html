@@ -1,0 +1,65 @@
+<div class="property-detail-container">
+    <!-- Left Side Carousel of Images -->
+    <div class="property-images">
+      <img *ngFor="let image of property.images" [src]="image" alt="Property Image" class="property-image" />
+    </div>
+  
+    <!-- Right Side Details -->
+    <div class="property-details">
+      <h2>{{ property.name }}</h2>
+      <p><strong>Price:</strong> ${{ property.price }}</p>
+      <p><strong>Location:</strong> {{ property.location }}</p>
+      <p><strong>Details:</strong> {{ property.detail }}</p>
+  
+      <button (click)="openEnquiryPopup()" class="enquiry-button">Enquire</button>
+    </div>
+  </div>
+  
+  <!-- Enquiry Popup -->
+  <div class="enquiry-popup" *ngIf="isPopupOpen">
+    <div class="popup-content">
+      <button class="close-button" (click)="closeEnquiryPopup()">✖</button>
+      <h3>Enquire about {{ property.name }}</h3>
+      
+      <form (ngSubmit)="submitEnquiry($event)">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            [(ngModel)]="enquiryData.name"
+            name="name"
+            required
+            placeholder="Enter your name"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="mobile">Mobile</label>
+          <input
+            type="text"
+            id="mobile"
+            [(ngModel)]="enquiryData.Mobile"
+            name="mobile"
+            required
+            placeholder="Enter your mobile number"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            [(ngModel)]="enquiryData.email"
+            name="email"
+            required
+            placeholder="Enter your email"
+          />
+        </div>
+  
+        <button type="submit" class="btn-submit">Submit Enquiry</button>
+      </form>
+    </div>
+  </div>
+  

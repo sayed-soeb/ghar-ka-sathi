@@ -1,115 +1,519 @@
+/* buy-sell-rent.component.css */
+
 .buy-sell-rent-section {
-    padding: 20px;
-    
-    .section-buttons {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-      
-      .btn {
-        margin: 0 10px;
-        padding: 10px 20px;
-        background-color: #000;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        
-        &:hover {
-          background-color: #f0b429;
-        }
-      }
-    }
-    
-    .search-section {
-      text-align: center;
-      padding: 20px;
-      background-size: cover;
-      background-position: center;
-      
-      h2 {
-        color: #fff;
-        margin-bottom: 10px;
-      }
-      
-      input {
-        width: 80%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        margin-bottom: 10px;
-      }
-      
-      .filters {
-        display: flex;
-        justify-content: center;
-        
-        select {
-          margin: 0 10px;
-          padding: 8px;
-          border-radius: 5px;
-          border: 1px solid #ccc;
-        }
-      }
-    }
-    
-    .properties-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      
-      .property-card {
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        padding: 15px;
-        text-align: center;
-        background-color: #fff;
-        
-        img {
-          width: 100%;
-          border-radius: 5px;
-        }
-        
-        h3 {
-          margin: 10px 0;
-          font-size: 18px;
-        }
-      }
-    }
-    
-    .sell-form {
-      max-width: 500px;
-      margin: 0 auto;
-      
-      h2 {
-        text-align: center;
-        margin-bottom: 20px;
-      }
-      
-      form {
-        display: flex;
-        flex-direction: column;
-        
-        input, select, textarea {
-          margin-bottom: 15px;
-          padding: 10px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-        }
-        
-        .submit-btn {
-          padding: 10px;
-          background-color: #000;
-          color: #fff;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          
-          &:hover {
-            background-color: #f0b429;
-          }
-        }
-      }
-    }
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif; /* Use a clean, readable font */
+  color: #333;
+}
+
+.section-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background-color: #3b0a45; /* Dark maroon */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s; /* Animation */
+}
+
+.btn:hover {
+  background-color: #5a2d65; /* Lighter shade on hover */
+  transform: scale(1.05);
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+input[type="text"]:focus,
+select:focus {
+  border-color: #3b0a45; /* Dark maroon focus */
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+}
+
+.properties-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 20px;
+}
+
+.property-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s; /* Animation */
+}
+
+.property-card:hover {
+  transform: scale(1.02); /* Scale effect on hover */
+}
+
+.property-card img {
+  max-width: 100%; /* Responsive image */
+  border-radius: 10px;
+  height: auto;
+}
+
+.property-card h3 {
+  margin: 10px 0;
+  font-size: 1.5em;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.pagination button {
+  background-color: #3b0a45; /* Dark maroon */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: background-color 0.3s; /* Animation */
+}
+
+.pagination button:hover {
+  background-color: #5a2d65; /* Lighter shade on hover */
+}
+
+.sell-form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.sell-form h2 {
+  margin-bottom: 20px;
+}
+
+.sell-form input,
+.sell-form select,
+.sell-form textarea {
+  width: calc(100% - 22px); /* Full width with padding adjustment */
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.submit-btn {
+  background-color: #3b0a45; /* Dark maroon */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Animation */
+}
+
+.submit-btn:hover {
+  background-color: #5a2d65; /* Lighter shade on hover */
+}
+/* General Styling */
+.property-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 99%;
+  height: 60vh; /* Adjusted height */
+  padding: 1rem;
+  background: linear-gradient(135deg, #f7f7f7, #ffffff);
+  position: relative;
+  overflow: hidden;
+  /* box-sizing: border-box; */
+}
+
+/* Left Side Text Area */
+.property-info {
+  width: 45%;
+  color: #333;
+  animation: fadeInLeft 1.5s ease-in-out;
+}
+
+.property-info h2 {
+  font-size: 2.8rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #C30000;
+  margin-bottom: 1rem;
+}
+
+.property-info p {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.book-now {
+  padding: 0.8rem 2rem;
+  background-color: #C30000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.book-now:hover {
+  background-color: #A20000;
+}
+
+/* Carousel Section */
+.property-carousel {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  width: 300%;
+  transition: transform 1s ease-in-out;
+}
+
+.carousel img {
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* Carousel Control Buttons (Previous and Next) */
+.carousel-controls {
+  position: absolute;
+  left: 47%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.carousel-controls button {
+  background-color: #C30000;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 2rem;
+  margin: 0.5rem 0;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-controls button:hover {
+  background-color: #A20000;
+}
+
+/* Fade In Animation for Text */
+@keyframes fadeInLeft {
+  0% { opacity: 0; transform: translateX(-50px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .property-section {
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+    padding: 1.5rem;
   }
-  
+
+  .property-info, .property-carousel {
+    width: 100%;
+  }
+
+  .property-info h2 {
+    font-size: 2rem;
+  }
+
+  .property-info p {
+    font-size: 1rem;
+  }
+
+  .book-now {
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+
+  .carousel-controls {
+    left: 45%;
+    top: 55%;
+    font-size: 1.5rem;
+  }
+
+  .carousel-controls button {
+    font-size: 1.2rem;
+  }
+}
+
+/* Search Section Styling */
+.search-section {
+  width: 100%;
+  background-color: #f2e6e6; /* Light color to match maroon */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.search-section h2 {
+  font-size: 2rem;
+  font-family: 'Poppins', sans-serif;
+  color: #800000; /* Maroon color */
+  margin-bottom: 1.5rem;
+}
+
+/* Search Input Styling */
+.search-input {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+  background-color: #fff;
+  transition: border-color 0.3s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #800000;
+}
+
+/* Filters Styling */
+.filters {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap; /* Ensures responsiveness */
+}
+
+.filter-select {
+  flex: 1;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+  background-color: #fff;
+  transition: border-color 0.3s;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #800000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+  }
+
+  .filter-select {
+    margin-bottom: 1rem;
+  }
+}
+/* Prevent Horizontal Scroll */
+body, html {
+  overflow-x: hidden;
+}
+
+/* Add this to ensure the parent container doesn't overflow */
+.search-section {
+  max-width: 100%;
+  overflow-x: hidden;
+  padding: 2rem;
+  background-color: #f2e6e6;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+/* Adjust filters to avoid overflow */
+.filters {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Section Buttons */
+.section-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.section-buttons .btn {
+  background-color: #f2e6e6;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  margin-left: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.section-buttons .btn:hover {
+  background-color: #b30000;
+  color: white;
+}
+
+/* Property Grid */
+.properties-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 20px;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .properties-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .properties-grid {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+  }
+}
+
+/* Property Card */
+.property-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 10px;
+  transition: transform 0.3s ease;
+  text-align: center;
+  position: relative;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Property Type Label */
+.property-type {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #b30000;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Image Wrapper */
+.image-wrapper {
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+/* Property Image */
+.property-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.5s ease; /* Smooth zoom */
+}
+
+.property-card:hover .property-image {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Property Info */
+.property-info {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.property-info h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.property-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.property-info i {
+  color: #b30000;
+  margin-right: 5px;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: #b30000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination button[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination button:hover:not([disabled]) {
+  background-color: #800000;
+}
+.section-buttons .btn.active {
+  background-color: maroon; /* Change to your preferred color */
+  color: white; /* Change text color if needed */
+  /* Add any additional styles for the active state */
+}

@@ -17,6 +17,23 @@ import { RegisterComponent } from './components/register/register.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { LoaderComponent } from './components/loader/loader.component';
+import { AboutUsComponent } from './components/services/about-us/about-us.component';
+import { ContactComponent } from './components/services/contact/contact.component';
+import { PaintingServiceComponent } from './components/services/painting-service/painting-service.component';
+import { CarpentryServiceComponent } from './components/services/carpentry-service/carpentry-service.component';
+import { PlumbingServiceComponent } from './components/services/plumbing-service/plumbing-service.component';
+import { PropertyDetailComponent } from './components/services/property-detail/property-detail.component';
+import { OurservicesComponent } from './components/ourservices/ourservices.component';
+import { MyServicesComponent } from './components/myservices/myservices.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SettingsComponent } from './settings/settings.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -32,13 +49,30 @@ import { LoaderComponent } from './components/loader/loader.component';
     PackersMoversComponent,
     LoginComponent,
     RegisterComponent,
-    LoaderComponent
+    LoaderComponent,
+    AboutUsComponent,
+    ContactComponent,
+    PaintingServiceComponent,
+    CarpentryServiceComponent,
+    PlumbingServiceComponent,
+    PropertyDetailComponent,
+    OurservicesComponent,
+    MyServicesComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule ,
-    FormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,20 @@
+<section class="home-container">
+    <h2 class="services-title">Our Services</h2>
+    <p class="services-description">
+        We offer a variety of professional services to cater to all your needs. From cleaning to home renovation, our expert team is here to help you achieve your goals. Explore our services below and find the perfect solution for you!
+    </p>
+    
+    <div class="services-grid">
+        <div class="service-card" *ngFor="let service of services">
+            <div class="service-image">
+                <div class="service-content" style="align-items: center;display: flex;flex-direction: column;">
+                    <div style="height: 5rem; width: 5rem;">
+                <img src={{service.image}} alt="image" style="height: 5rem; width: 5rem;" /></div>
+                    <h3>{{ service.title }}</h3>
+                    <p>{{ service.description }}</p>
+                    <button [routerLink]="getServiceRoute(service.title)">Get Service</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

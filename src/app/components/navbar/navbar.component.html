@@ -1,41 +1,68 @@
 <nav class="navbar">
-    <div class="container">
-      <div class="logo">
-        <img src="../../../assets/images/logo.svg" alt="logo" />
-      </div>
-      
-      <!-- Desktop Menu -->
-      <ul class="nav-links">
-        <li><a routerLink="/home">Home</a></li>
-        <li><a routerLink="/about">About Us</a></li>
-        <li><a routerLink="/services">Services</a></li>
-        <li><a routerLink="/contact">Contact</a></li>
+  <div class="container">
+    <div class="logo">
+      <img src="../../../assets/images/logo.svg" alt="logo" />
+    </div>
+
+    <!-- Desktop Menu -->
+    <ul class="nav-links">
+      <li><a routerLink="/home">Home</a></li>
+      <!-- <li><a routerLink="/about-us">About Us</a></li> -->
+      <li><a routerLink="/our-services">Services</a></li>
+      <li><a routerLink="/contact">Contact Us</a></li>
+
+      <!-- Show login/register if not logged in -->
+      <ng-container *ngIf="!isLoggedIn; else loggedInMenu">
         <li><a routerLink="/login" class="btn">Login</a></li>
         <li><a routerLink="/register" class="btn">Register</a></li>
-      </ul>
-  
-      <!-- Search Bar -->
-      <!-- <div class="search-bar">
-        <input type="text" placeholder="Search for services..." />
-        <button>Search</button>
-      </div> -->
-  
-      <!-- Mobile Menu Button -->
-      <div class="hamburger" (click)="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      </ng-container>
+
+      <!-- Logged-in menu dropdown -->
+      <ng-template #loggedInMenu>
+        <li class="profile-menu">
+          <div class="profile-icon" (click)="toggleDropdown()">
+            <i class="fas fa-user-circle"></i>
+            <span>{{ username || 'Profile' }}</span>
+          </div>
+          <!-- Profile Dropdown -->
+          <ul class="dropdown-menu" *ngIf="dropdownActive">
+            <li><a routerLink="/my-services"><i class="fas fa-bell"></i> My Bookings</a></li>
+            <!-- <li><a routerLink="/account"><i class="fas fa-user"></i> My Account</a></li> -->
+            <li><a routerLink="/settings"><i class="fas fa-cog"></i> Settings</a></li>
+            <li><button class="btn-logout" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button></li>
+          </ul>
+        </li>
+      </ng-template>
+    </ul>
+
+    <!-- Mobile Menu Button -->
+    <div class="hamburger" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-  
-    <!-- Mobile Dropdown Menu -->
-    <div class="mobile-menu" [class.active]="menuActive">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Service</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Register/Login</a></li>
-      </ul>
-    </div>
-  </nav>
-  
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div class="mobile-menu" [class.active]="menuActive">
+    <ul>
+      <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/services">Services</a></li>
+      <li><a routerLink="/about">About Us</a></li>
+
+      <!-- Show login/register in mobile menu if not logged in -->
+      <ng-container *ngIf="!isLoggedIn; else mobileLoggedInMenu">
+        <li><a routerLink="/login">Login</a></li>
+        <li><a routerLink="/register">Register</a></li>
+      </ng-container>
+
+      <!-- Logged-in mobile menu -->
+      <ng-template #mobileLoggedInMenu>
+        <li><a routerLink="/notifications"><i class="fas fa-bell"></i> Notifications</a></li>
+        <li><a routerLink="/account"><i class="fas fa-user"></i> My Account</a></li>
+        <li><a routerLink="/settings"><i class="fas fa-cog"></i> Settings</a></li>
+        <li><button (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button></li>
+      </ng-template>
+    </ul>
+  </div>
+</nav>

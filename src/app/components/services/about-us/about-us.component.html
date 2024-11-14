@@ -1,0 +1,42 @@
+<div class="about-us-container">
+    <div class="intro">
+      <h1>{{ title }}</h1>
+      <p>{{ introduction }}</p>
+      <p>{{ mission }}</p>
+      <p>{{ vision }}</p>
+    </div>
+  
+    <div class="why-choose-us">
+      <h2>Why Choose Us?</h2>
+      <ul>
+        <li *ngFor="let reason of reasonsToChooseUs">{{ reason }}</li>
+      </ul>
+    </div>
+  
+    <div class="our-services">
+      <h2>Our Services</h2>
+      <p>At Ghar Ka Sathi, we provide the following services:</p>
+      <ul>
+        <li>Real Estate Services (Buying, Selling, Renting)</li>
+        <li>Cleaning Services (Deep Cleaning, Regular Cleaning)</li>
+        <li>Painting Services (Interior and Exterior)</li>
+        <li>Electrical Services (Repairs, Installations)</li>
+        <li>Home Renovation (Kitchens, Bathrooms, Extensions)</li>
+        <li>Packer and Movers (Residential and Commercial Moving)</li>
+      </ul>
+    </div>
+  
+    <div class="extra-points">
+      <h2>Additional Information</h2>
+      <ul>
+        <li *ngFor="let point of extraPoints">{{ point }}</li>
+      </ul>
+    </div>
+  
+    <div class="call-to-action">
+      <h2>Get in Touch</h2>
+      <p>{{ callToAction }}</p>
+      <p>If you have any questions or need assistance, feel free to <a href="/contact">Contact Us</a>.</p>
+    </div>
+  </div>
+  

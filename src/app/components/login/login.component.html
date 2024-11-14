@@ -1,19 +1,97 @@
 <div class="auth-container">
-    <div class="auth-form">
-      <h2>Login</h2>
-      <form (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="email">Email or Mobile</label>
-          <input type="text" id="email" [(ngModel)]="loginData.email" name="email" required />
-        </div>
-        
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" [(ngModel)]="loginData.password" name="password" required />
-        </div>
-        
-        <button type="submit" class="btn-primary">Login</button>
-      </form>
+  <div class="auth-info">
+    <h1 class="animated-heading">Welcome to Our Service</h1>
+    <p class="animated-text">
+      Discover a world of seamless connectivity and efficient solutions crafted
+      just for you. Log in to explore more!
+    </p>
+  </div>
+
+  <!-- Login and Reset Form Section -->
+  <div class="auth-form">
+    <h2 *ngIf="!isResetMode">Login</h2>
+    <h2 *ngIf="isResetMode">Reset Password</h2>
+
+    <!-- Login Form -->
+    <form *ngIf="!isResetMode" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="emailOrMobile">Email or Mobile</label>
+        <input
+          type="text"
+          id="email"
+          [(ngModel)]="loginData.emailOrMobile"
+          name="emailOrMobile"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          [(ngModel)]="loginData.password"
+          name="password"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn-primary">Login</button>
+      <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+    </form>
+
+    <!-- Password Reset Form -->
+    <form *ngIf="isResetMode" (ngSubmit)="onResetPassword()">
+      <div class="form-group">
+        <label for="resetEmail">Email</label>
+        <input
+          type="email"
+          id="resetEmail"
+          [(ngModel)]="resetData.email"
+          name="resetEmail"
+          required
+        />
+      </div>
+
+      <div class="form-group" *ngIf="otpSent">
+        <label for="otp">OTP</label>
+        <input
+          type="text"
+          id="otp"
+          [(ngModel)]="resetData.otp"
+          name="otp"
+          required
+        />
+      </div>
+
+      <div class="form-group" *ngIf="otpSent">
+        <label for="newPassword">New Password</label>
+        <input
+          type="password"
+          id="newPassword"
+          [(ngModel)]="resetData.newPassword"
+          name="newPassword"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn-primary">
+        {{ otpSent ? 'Reset Password' : 'Send OTP' }}
+      </button>
+      <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+    </form>
+
+    <!-- Additional Options -->
+    <div class="additional-options">
+      <button *ngIf="!isResetMode" class="btn-secondary" (click)="toggleResetMode()">
+        Forgot Password?
+      </button>
+      <button *ngIf="!isResetMode" class="btn-google" (click)="loginWithGoogle()">
+        <img src="../../../assets/google-icon.png" alt="Google Icon" class="google-icon" /> Login with Google
+      </button>
+      <button *ngIf="isResetMode" class="btn-secondary" (click)="toggleResetMode()">
+        Back to Login
+      </button>
     </div>
   </div>
-  
+</div>

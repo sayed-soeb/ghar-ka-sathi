@@ -33,32 +33,47 @@ export class HomeComponent {
     {
       title: 'Cleaning Service',
       description: 'Professional cleaning for homes and offices.',
-      image: 'assets/images/cleaning.jpg'
+      image: 'assets/images/cleaning1.png'
     },
     {
       title: 'Electric Service',
       description: 'Expert electrical services for all your needs.',
-      image: 'assets/images/electrical.jpg'
+      image: 'assets/images/ele.png'
     },
     {
       title: 'Home Renovation',
       description: 'Complete home renovation and remodeling.',
-      image: 'assets/images/home.jpg'
+      image: 'https://www.svgrepo.com/show/494592/house-renovation.svg'
     },
     {
       title: 'Buy, Sell & Rent',
       description: 'Real estate services for buying, selling, and renting.',
-      image: 'assets/images/buy.jpg'
+      image: 'https://www.svgrepo.com/show/308019/property-manager-landlord-executive-ceo.svg'
     },
     {
       title: 'Pest Control & Disinfection',
       description: 'Keep your home safe from pests and germs.',
-      image: 'assets/images/pest.jpg'
+      image: 'https://www.svgrepo.com/show/326346/spraying.svg'
     },
     {
       title: 'Packers & Movers',
       description: 'Hassle-free moving services.',
-      image: 'assets/images/packers.jpg'
+      image: 'https://www.svgrepo.com/show/131879/moving.svg'
+    },
+    {
+      title: 'Plumbing',
+      description: 'Real estate services for buying, selling, and renting.',
+      image: 'https://www.svgrepo.com/show/308019/property-manager-landlord-executive-ceo.svg'
+    },
+    {
+      title: 'Carpentry',
+      description: 'Keep your home safe from pests and germs.',
+      image: 'https://www.svgrepo.com/show/326346/spraying.svg'
+    },
+    {
+      title: 'Painting',
+      description: 'Hassle-free moving services.',
+      image: 'https://www.svgrepo.com/show/131879/moving.svg'
     }
   ];
 
@@ -70,6 +85,9 @@ export class HomeComponent {
       case 'Buy, Sell & Rent': return '/buy-sell-rent';
       case 'Pest Control & Disinfection': return '/pest-control';
       case 'Packers & Movers': return '/packers-movers';
+      case 'Plumbing': return '/plumbing';
+      case 'Painting': return '/painting';
+      case 'Carpentry': return '/carpentry';
       default: return '/';
     }
   }

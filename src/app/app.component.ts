@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
+import { LoadingService } from './services/loading.service';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +9,14 @@ import { Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationErr
 })
 export class AppComponent {
   title = 'ghar-ka-sathi';
-  loading = true; // Initial state for loader
+  isLoading = false;
 
-  constructor(private router: Router) {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationStart) {
-        this.loading = true;  // Show loader on route start
-      } else if (event instanceof NavigationEnd || event instanceof NavigationCancel || event instanceof NavigationError) {
-        this.loading = false;  // Hide loader on route end
-      }
+  constructor(private loadingService: LoadingService) {}
+
+  ngOnInit() {
+    // Subscribe to loading state changes
+    this.loadingService.loading$.subscribe((loading) => {
+      this.isLoading = loading;
     });
   }
 }

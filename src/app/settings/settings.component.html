@@ -1,0 +1,51 @@
+<div class="settings-container">
+    <h2>User Settings</h2>
+    <div class="user-info">
+        <p><strong>Name:</strong> {{ userInfo.username }}</p>
+        <p><strong>Email:</strong> {{ userInfo.emailOrMobile }}</p>
+    </div>
+
+    <button class="action-btn" (click)="showChangePassword()">Change Password</button>
+    <button class="action-btn" (click)="showDeleteAccount()">Delete Account</button>
+
+    <!-- Change Password Popup -->
+    <div class="popup-container" *ngIf="showPasswordForm">
+        <button class="popup-close-btn" (click)="closeForms()">×</button>
+        <h2 class="popup-header">Change Password</h2>
+        <form [formGroup]="changePasswordForm" (ngSubmit)="onChangePassword()">
+            <div class="form-field">
+                <label for="currentPassword">Current Password</label>
+                <input type="password" id="currentPassword" formControlName="currentPassword" required>
+            </div>
+            <div class="form-field">
+                <label for="newPassword">New Password</label>
+                <input type="password" id="newPassword" formControlName="newPassword" required>
+            </div>
+            <div class="form-field">
+                <label for="confirmNewPassword">Confirm New Password</label>
+                <input type="password" id="confirmNewPassword" formControlName="confirmNewPassword" required>
+            </div>
+            <div class="popup-actions">
+                <button type="button" class="cancel-btn" (click)="closeForms()">Cancel</button>
+                <button type="submit" class="submit-btn">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Delete Account Popup -->
+    <div class="popup-container" *ngIf="showDeleteForm">
+        <button class="popup-close-btn" (click)="closeForms()">×</button>
+        <h2 class="popup-header">Delete Account</h2>
+        <p>Enter your password to confirm account deletion.</p>
+        <form [formGroup]="deleteAccountForm" (ngSubmit)="onDeleteAccount()">
+            <div class="form-field">
+                <label for="deletePassword">Password</label>
+                <input type="password" id="deletePassword" formControlName="password" required>
+            </div>
+            <div class="popup-actions">
+                <button type="button" class="cancel-btn" (click)="closeForms()">Cancel</button>
+                <button type="submit" class="delete-btn">Delete Account</button>
+            </div>
+        </form>
+    </div>
+</div>
