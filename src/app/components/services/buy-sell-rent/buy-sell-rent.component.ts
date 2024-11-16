@@ -17,6 +17,14 @@ export class BuySellRentComponent implements OnInit {
 
   properties: any[] = []; // Hold fetched properties
   filteredProperties: any[] = []; // Copy of properties to apply filters
+  currentImage: string = '';
+  imageLoaded: boolean = false;
+
+  private images: string[] = [
+    'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg',
+    'https://images.pexels.com/photos/1370704/pexels-photo-1370704.jpeg',
+    'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg',
+  ];
 
   propertyData = {
     name: '',
@@ -41,7 +49,27 @@ export class BuySellRentComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
+    this.changeImage();
     this.fetchProperties(); // Fetch properties on component initialization
+  }
+
+  changeImage(): void {
+    let index = 0;
+    this.loadImage(index);
+    setInterval(() => {
+      index = (index + 1) % this.images.length;
+      this.loadImage(index);
+    }, 5000); // Change image every 5 seconds
+  }
+
+  loadImage(index: number): void {
+    this.imageLoaded = false;
+    const image = new Image();
+    image.src = this.images[index];
+    image.onload = () => {
+      this.currentImage = this.images[index];
+      this.imageLoaded = true;
+    };
   }
 
   nextImage() {
@@ -55,7 +83,7 @@ export class BuySellRentComponent implements OnInit {
   }
 
   fetchProperties(): void {
-    const apiUrl = 'http://localhost:5000/api/properties';
+    const apiUrl = 'https://backend-gharkasathi.onrender.com/api/properties';
     axios.get(apiUrl)
       .then(response => {
         this.properties = response.data;

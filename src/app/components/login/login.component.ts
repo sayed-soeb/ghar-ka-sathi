@@ -26,7 +26,7 @@ export class LoginComponent {
     this.isReloading = false; // Additional flag to handle loading during reload
   
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', this.loginData);
+      const response = await axios.post('https://backend-gharkasathi.onrender.com/api/auth/login', this.loginData);
       localStorage.setItem('authToken', response.data.token);
       localStorage.setItem('user',response.data.emailOrMobile);
       localStorage.setItem('userInfo',JSON.stringify(response.data));
@@ -69,7 +69,7 @@ export class LoginComponent {
   async onResetPassword() {
     if (!this.otpSent) {
       try {
-        await axios.post('http://localhost:5000/api/auth/send-otp', { email: this.resetData.email });
+        await axios.post('https://backend-gharkasathi.onrender.com/api/auth/send-otp', { email: this.resetData.email });
         
         Toastify({
           text: "OTP sent to your email. Enter it below to reset your password.",
@@ -92,7 +92,7 @@ export class LoginComponent {
       }
     } else {
       try {
-        await axios.post('http://localhost:5000/api/auth/reset-password', {
+        await axios.post('https://backend-gharkasathi.onrender.com/api/auth/reset-password', {
           email: this.resetData.email,
           otp: this.resetData.otp,
           newPassword: this.resetData.newPassword

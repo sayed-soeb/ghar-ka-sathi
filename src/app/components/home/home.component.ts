@@ -33,47 +33,47 @@ export class HomeComponent {
     {
       title: 'Cleaning Service',
       description: 'Professional cleaning for homes and offices.',
-      image: 'assets/images/cleaning1.png'
+      image: 'assets/images/cleaning.png'
     },
     {
       title: 'Electric Service',
       description: 'Expert electrical services for all your needs.',
-      image: 'assets/images/ele.png'
+      image: 'assets/images/plugin.png'
     },
     {
       title: 'Home Renovation',
       description: 'Complete home renovation and remodeling.',
-      image: 'https://www.svgrepo.com/show/494592/house-renovation.svg'
+      image: 'assets/images/renovation.png'
     },
     {
       title: 'Buy, Sell & Rent',
       description: 'Real estate services for buying, selling, and renting.',
-      image: 'https://www.svgrepo.com/show/308019/property-manager-landlord-executive-ceo.svg'
+      image: 'assets/images/for-sale.png'
     },
     {
       title: 'Pest Control & Disinfection',
       description: 'Keep your home safe from pests and germs.',
-      image: 'https://www.svgrepo.com/show/326346/spraying.svg'
+      image: 'assets/images/pest-control.png'
     },
     {
       title: 'Packers & Movers',
       description: 'Hassle-free moving services.',
-      image: 'https://www.svgrepo.com/show/131879/moving.svg'
+      image: 'assets/images/shipping.png'
     },
     {
       title: 'Plumbing',
       description: 'Real estate services for buying, selling, and renting.',
-      image: 'https://www.svgrepo.com/show/308019/property-manager-landlord-executive-ceo.svg'
+      image: 'assets/images/plumbing.png'
     },
     {
       title: 'Carpentry',
       description: 'Keep your home safe from pests and germs.',
-      image: 'https://www.svgrepo.com/show/326346/spraying.svg'
+      image: 'assets/images/hand-saw.png'
     },
     {
       title: 'Painting',
       description: 'Hassle-free moving services.',
-      image: 'https://www.svgrepo.com/show/131879/moving.svg'
+      image: 'assets/images/paint-roller.png'
     }
   ];
 

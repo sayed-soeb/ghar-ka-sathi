@@ -46,7 +46,7 @@ export class PropertyDetailComponent implements OnInit {
     };
 
     try {
-      const response = await axios.post('http://localhost:5000/api/properties/enquire', enquiryPayload);
+      const response = await axios.post('https://backend-gharkasathi.onrender.com/api/properties/enquire', enquiryPayload);
       console.log('Enquiry submitted:', response.data);
       this.closeEnquiryPopup();
       alert('Your enquiry has been submitted successfully!');

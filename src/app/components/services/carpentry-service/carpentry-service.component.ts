@@ -49,7 +49,7 @@ export class CarpentryServiceComponent {
 
     console.log('Booking Data:', this.bookingData);
     try {
-      const response = await axios.post('http://localhost:5000/api/services', this.bookingData, {
+      const response = await axios.post('https://backend-gharkasathi.onrender.com/api/services', this.bookingData, {
         headers: {
           Authorization: `Bearer ${authToken}`
         }

@@ -1,27 +1,19 @@
 <div class="property-section">
-  <!-- Left Side Text Area -->
-  <div class="property-info">
-    <h2>About the Property</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et volutpat elit, vel tristique erat. Aliquam euismod mauris eget sapien.</p>
-    <p>Fusce egestas, erat sit amet interdum finibus, lorem justo vehicula nisi, sed fermentum orci mi non mi.</p>
-    <button class="book-now">Book Now</button>
-  </div>
-
-  <!-- Carousel Control Buttons in the middle -->
-  <div class="carousel-controls">
-    <button class="prev-btn" (click)="prevImage()">&#10094;</button>
-    <button class="next-btn" (click)="nextImage()">&#10095;</button>
-  </div>
-
-  <!-- Right Side Carousel -->
-  <div class="property-carousel">
-    <div class="carousel" [style.transform]="'translateX(' + currentTranslateX + '%)'">
-      <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg" alt="Property Image 1">
-      <img src="https://images.pexels.com/photos/1370704/pexels-photo-1370704.jpeg?cs=srgb&dl=pexels-jessica-bryant-592135-1370704.jpg&fm=jpg" alt="Property Image 2">
-      <img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?cs=srgb&dl=pexels-binyaminmellish-1396122.jpg&fm=jpg" alt="Property Image 3">
+  <!-- Full-Width Background Image with Text Overlay -->
+  <div class="property-banner" [style.backgroundImage]="'url(' + currentImage + ')'" [class.fade]="imageLoaded">
+    <div class="banner-content">
+      <h1>Welcome to Ghar Ka Saathi</h1>
+      <p>
+        Experience the finest home services with us! We provide a wide range of
+        services including plumbing, electrical repairs, home renovation, cleaning,
+        carpentry, packers and movers, painting, and real estate services. Your
+        trusted partner for all things home.
+      </p>
+      <button class="explore-now"><a routerLink="/our-services">Explore Services</a></button>
     </div>
   </div>
 </div>
+
 
 <div class="buy-sell-rent-section">
 

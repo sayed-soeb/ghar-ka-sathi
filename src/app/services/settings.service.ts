@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SettingsService {
-  private apiUrl = 'http://localhost:5000/api/auth';
+  private apiUrl = 'https://backend-gharkasathi.onrender.com/api/auth';
 
   constructor(private http: HttpClient) {}
 
