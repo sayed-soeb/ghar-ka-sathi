@@ -2,7 +2,7 @@
   <!-- Full-Width Background Image with Text Overlay -->
   <div class="property-banner" [style.backgroundImage]="'url(' + currentImage + ')'" [class.fade]="imageLoaded">
     <div class="banner-content">
-      <h1>Welcome to Ghar Ka Saathi</h1>
+      <h1>Welcome to Ghar Ka Sathi</h1>
       <p>
         Experience the finest home services with us! We provide a wide range of
         services including plumbing, electrical repairs, home renovation, cleaning,
@@ -49,7 +49,7 @@
     </select>
   </div>
 </div>
-<div class="section-buttons">
+<div class="section-buttons" id="section-buttons1">
   <button class="btn" [class.active]="activeSectionOne === 'all'" (click)="selectCategory('all')">All Category</button>
   <button class="btn" [class.active]="activeSectionOne === 'Builders project'" (click)="selectCategory('Builders project')">Builders project</button>
   <button class="btn" [class.active]="activeSectionOne === 'Residential Land'" (click)="selectCategory('Residential Land')">Residential Land</button>

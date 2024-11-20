@@ -248,7 +248,8 @@ select:focus {
     flex-direction: column;
     height: auto;
     text-align: center;
-    padding: 1.5rem;
+    padding: 1rem;
+    box-sizing: border-box;
   }
 
   .property-info, .property-carousel {
@@ -277,13 +278,19 @@ select:focus {
   .carousel-controls button {
     font-size: 1.2rem;
   }
+  #section-buttons1 {
+    display: grid;
+    gap: 5px 0px;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* Search Section Styling */
 .search-section {
   width: 100%;
   background-color: #f2e6e6; /* Light color to match maroon */
-  padding: 2rem;
+  padding: 1rem;
+  box-sizing: border-box;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem;
@@ -304,6 +311,7 @@ select:focus {
   border-radius: 8px;
   margin-bottom: 1.5rem;
   font-size: 1rem;
+  box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
   background-color: #fff;
   transition: border-color 0.3s;

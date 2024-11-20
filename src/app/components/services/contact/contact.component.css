@@ -65,10 +65,12 @@
   @media (max-width: 768px) {
     .contact-container {
       flex-direction: column;
+      box-sizing: border-box;
     }
   
     .contact-image, .contact-form {
       width: 100%;
+      box-sizing: border-box;
     }
   }
   

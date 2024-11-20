@@ -46,14 +46,14 @@
   <!-- Mobile Dropdown Menu -->
   <div class="mobile-menu" [class.active]="menuActive">
     <ul>
-      <li><a routerLink="/home">Home</a></li>
-      <li><a routerLink="/services">Services</a></li>
-      <li><a routerLink="/about">About Us</a></li>
+      <li><a routerLink="/home" (click)="toggleMenu()">Home</a></li>
+      <li><a routerLink="/our-services" (click)="toggleMenu()">In-Home Services</a></li>
+      <li><a routerLink="/contact" (click)="toggleMenu()">Contact Us</a></li>
 
       <!-- Show login/register in mobile menu if not logged in -->
       <ng-container *ngIf="!isLoggedIn; else mobileLoggedInMenu">
-        <li><a routerLink="/login">Login</a></li>
-        <li><a routerLink="/register">Register</a></li>
+        <li><a routerLink="/login" (click)="toggleMenu()">Login</a></li>
+        <li><a routerLink="/register" (click)="toggleMenu()">Register</a></li>
       </ng-container>
 
       <!-- Logged-in mobile menu -->

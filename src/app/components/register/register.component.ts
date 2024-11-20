@@ -16,7 +16,7 @@ export class RegisterComponent {
   errorMessage: string | null = null;
   successMessage: string | null = null;
 
-  private readonly registerApiUrl = 'https://backend-gharkasathi.onrender.com/api/auth/register'; // Update with your backend URL
+  private readonly registerApiUrl = 'http://backend-gharkasathi.onrender.com/api/auth/register'; // Update with your backend URL
 
   onSubmit() {
     // Clear previous messages

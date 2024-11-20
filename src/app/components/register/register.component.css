@@ -151,3 +151,21 @@
   height: 20px;
   margin-right: 8px;
 }
+
+@media only screen and (max-width: 768px) {
+  .auth-container{
+    flex-direction: column;
+    height: 100vh;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    justify-content: start;
+  }
+  .auth-info{
+    flex: 0;
+    margin-right: auto;
+  }
+  .auth-form {
+    flex: 0;
+  }
+  
+}
