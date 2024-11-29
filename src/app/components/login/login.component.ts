@@ -29,7 +29,7 @@ export class LoginComponent {
 
       // Backend par token bhejna
       this.http
-        .post('http://backend-gharkasathi.onrender.com//api/google', { token: googleToken })
+        .post('http://backend-gharkasathi.onrender.com/api/google', { token: googleToken })
         .subscribe(
           (data: any) => {
             console.log('Backend Response:', data);
