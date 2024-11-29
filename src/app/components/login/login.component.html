@@ -86,9 +86,16 @@
       <button *ngIf="!isResetMode" class="btn-secondary" (click)="toggleResetMode()">
         Forgot Password?
       </button>
-      <button *ngIf="!isResetMode" class="btn-google" (click)="loginWithGoogle()">
-        <img src="../../../assets/google-icon.png" alt="Google Icon" class="google-icon" /> Login with Google
-      </button>
+      <div style="width: 100%;display:flex;justify-content: center; margin-top: 0.5rem;">
+      <div id="g_id_onload"
+         data-client_id="561016954027-3e0cgnehtdouhgcp1ig561fqq6uhrb0a.apps.googleusercontent.com"
+         data-callback="handleCredentialResponse"
+         data-auto_prompt="false">
+    </div>
+    <div class="g_id_signin" data-type="standard" data-size="large"
+    data-logo_alignment="center"
+    data-width="100%"></div>
+  </div>
       <button *ngIf="isResetMode" class="btn-secondary" (click)="toggleResetMode()">
         Back to Login
       </button>

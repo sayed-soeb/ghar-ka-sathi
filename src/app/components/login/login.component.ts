@@ -4,6 +4,7 @@ import axios from 'axios';
 import Toastify from 'toastify-js';
 import "toastify-js/src/toastify.css";
 import { LoadingService } from '../../services/loading.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,39 @@ export class LoginComponent {
   errorMessage: string | null = null;
   isReloading: boolean = false;
 
-  constructor(private router: Router,private loadingService: LoadingService) {}
+  constructor(private router: Router,private loadingService: LoadingService, private http: HttpClient) {}
+
+  ngOnInit() {
+    // Google Identity Services Callback
+    (window as any).handleCredentialResponse = (response: any) => {
+      const googleToken = response.credential; // Google JWT Token
+      console.log('Google Token:', googleToken);
+
+      // Backend par token bhejna
+      this.http
+        .post('http://localhost:5000/api/google', { token: googleToken })
+        .subscribe(
+          (data: any) => {
+            console.log('Backend Response:', data);
+
+            if (data.success) {
+              // LocalStorage me save karein
+              localStorage.setItem('authToken', data.token);
+              localStorage.setItem('user', data.email);
+
+              // Redirect to home page
+              window.location.href = '/home';
+            } else {
+              alert('Google Login Failed');
+            }
+          },
+          (error) => {
+            console.error('Error:', error);
+            alert('Login failed, please try again.');
+          }
+        );
+    };
+  }
 
   async onSubmit() {
     this.loadingService.show();
@@ -121,8 +154,4 @@ export class LoginComponent {
     }
   }
 
-  loginWithGoogle() {
-    console.log('Login with Google clicked');
-    // Implement Google OAuth and redirect to the dashboard on success
-  }
 }
